@@ -1,0 +1,38 @@
+<div class="product-list">
+  <h1>All Product List</h1>
+  <p class="message-p">{{ productMessage }}</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>name</th>
+        <th>Price</th>
+        <th>Color</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let items of ProductList">
+        <td><img src="{{ items.Image }}" /></td>
+        <td>{{ items.Name }}</td>
+        <td>{{ items.Price }}</td>
+        <td>{{ items.Color }}</td>
+        <td>{{ items.Category }}</td>
+        <td>{{ items.Description }}</td>
+        <td>
+          <fa-icon [icon]="icon" (click)="delete(items.id)"></fa-icon>
+          <fa-icon
+            class="update-edit"
+            [icon]="ikon"
+            routerLink="/seller-update-product/{{ items.id }}"
+          ></fa-icon>
+        </td>
+
+        <!-- <td><button (click)="delete(items.id)">Delete</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

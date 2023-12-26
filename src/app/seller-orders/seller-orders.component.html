@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="heading">
+        <h1>Orders</h1>
+    </div>
+<div class="table">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PID</th>
+                <th>Amount</th>
+                <th>status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of orderdata">
+                <td>{{items.id}}</td>
+                <td>{{items.productId}}</td>
+                <td>{{items.amount}}</td>
+                <td><select name="select" id="">
+                    <option value="">inprogress</option>
+                    <option value="">dispatched</option>
+                    <option value="">deliver by today</option>
+                </select></td>
+                <td><button class="form-button" (click)="updateorder(items)">update</button></td>
+
+
+
+
+            </tr>
+            
+           
+
+        </tbody>
+       
+    </table>
+</div>
+</div>

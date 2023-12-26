@@ -1,0 +1,16 @@
+.table{
+text-align: left;
+border-color: blueviolet;
+border-collapse: collapse;
+}
+
+.table td , .table th{
+    border: 1px solid blueviolet;
+    padding: 10px;
+    min-width: 160px;
+    color: blueviolet;
+}
+
+.heading{
+    margin-bottom: 8px;
+}

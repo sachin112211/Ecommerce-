@@ -1,0 +1,23 @@
+
+<div *ngIf="show else elseBlock">
+<div class="row search-item" *ngFor="let items of searchResult">
+    <div class="col-sm-3"  >
+        <a routerLink="/details/{{items.id}}">
+        <img src="{{items.Image}}"  alt="">
+    </a>
+    </div>
+    <div class="col-sm-8 details" >
+        <h6>{{items.Name}}</h6>
+        <p><b> Price : {{items.Price}}</b></p>
+        <p><span>color:{{items.Color}}</span><span>Category: {{items.Category}}</span></p>
+        <p>{{items.Description}}</p>
+    </div>
+</div>
+</div>
+<ng-template #elseBlock class="same">
+    <div class="logo">
+   <img src="assets\product404.jpg" class="same" routerLink="" alt="image not found">
+   </div>
+</ng-template>
+
+ 

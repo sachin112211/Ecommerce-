@@ -1,0 +1,32 @@
+<div class="user-auth" onsignup="false">
+    <div  *ngIf = "!showLogin" class="user-auth">
+        <h1>Signup</h1>
+        <form class="form" #userSignUp="ngForm" (ngSubmit)="usignup(userSignUp.value)">
+            <input class="form-input" ngModel name="name" placeholder="Enter name">
+            <input class="form-input" ngModel name="password" type="password"  placeholder="password">
+            <input class="form-input" ngModel name="email" type="text" placeholder="Enter email">
+            <button class="form-button">signup</button>
+            <a class="auth-toggle-link" routerLink="./" (click)="onLogin()" style="text-align: center;">Already signup click here to login</a>
+
+        </form>
+    </div>
+
+
+<!-- <> -->
+
+
+    <div class="signup" *ngIf = "showLogin">
+        <h1>Login</h1>
+       
+        <p style="color: red; text-align: center;">{{authError}}</p>
+        <form class="form" #userLogin="ngForm" (ngSubmit)="uLogin(userLogin.value)">
+            <input class="form-input" name="email" type="text" placeholder="Enter email" ngModel #email="ngModel" required>
+            <p class="invalid"><span  *ngIf="email.invalid && email.touched">please enter the email</span></p>
+            <input class="form-input"  name="password" type="password"  placeholder="password" ngModel #password="ngModel" required minlength="3" maxlength="30">
+            <p class="invalid"><span *ngIf= "password.validator && password.invalid && password.touched">please enter the password</span></p>
+            <button class="form-button">Login</button>
+            <a class="auth-toggle-link"  (click)="onSignup()">Don't have an account click here to create one</a>
+
+        </form>
+    </div>
+</div>

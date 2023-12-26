@@ -1,0 +1,45 @@
+<div *ngIf="orderData.length == 0">
+
+    <img src="https://img.freepik.com/free-vector/young-man-shopping-supermarket-department-store_40876-2628.jpg?w=1380&t=st=1702270271~exp=1702270871~hmac=9ac7310521eb47e228c02afb6f2d741c0a2860f1d1e5f21e68e8bfe8c4c424e5" alt="" class="myimage">
+
+</div>
+
+
+<div class="my-orders" *ngIf="orderData.length > 0">
+    <h1>My Orders</h1>
+    <div class="row">
+        <div class="col-sm-2">
+            <span>Orders</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Order Id</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Price</span>
+        </div>
+        <div class="col-sm-2">
+            <span>Status</span>
+        </div>
+        <div class="col-sm-2">
+           <span>Cancel Order</span>
+        </div>
+    </div>
+    <div class="row" *ngFor="let order of orderData">
+        <div class="col-sm-2">
+            <img class="order-img" src="https://www.clipartmax.com/png/middle/210-2106541_track-my-order-beach-volleyball.png" alt="">
+        </div>
+        <div class="col-sm-2">
+            <span>#{{order.id}}</span>
+        </div>
+        <div class="col-sm-2">
+            <span>{{order.amount}}</span>
+        </div>
+        <div class="col-sm-2">
+            <span>In Progress</span>
+        </div>
+        <div class="col-sm-2">
+            <button class="form-button" (click)="cancelOrder(order.id)">Cancel</button>
+        </div>
+    </div>
+    
+</div>

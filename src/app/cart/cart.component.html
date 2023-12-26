@@ -1,0 +1,93 @@
+<ng-container *ngIf="productcollect?.length != 0">
+ <h2 style="color: red; text-align: center; margin-top: 20px;">{{message}}</h2>
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Image</th>
+              <th>category</th>
+              <th>Description</th>
+              <th>quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let items of productcollect">
+              <td>{{ items.Name }}</td>
+              <td><img src="{{ items.Image }}" alt="" /></td>
+              <td>{{ items.Category }}</td>
+              <td>{{ items.Description }}</td>
+              <td>{{ items.quantity }}</td>
+              <td>{{ items.Price }}</td>
+              <td>{{ items.Total }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="removeproduct(items)">
+                  delete
+                </button>
+              </td>
+            </tr>
+          
+            <tr>
+              <td colspan="4"></td>
+              <td><button class="button" (click)="removeallitems()">remove products</button></td>
+              <td><button class="button" routerLink="/">shop</button></td>
+              <td><button (click)="checkout()">checkout</button></td>
+              <td> Total : ₹{{amount | number}}</td>
+               
+            </tr>
+
+        </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="productcollect?.length == 0">
+  <div class="container">
+    <div class="card">
+      <h3>My Cart</h3>
+
+      <div class="center">
+        <img
+          src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+          alt="cart empty image"
+        />
+        <h4>Your cart is empty!</h4>
+        <h6>Add item to it now</h6>
+        <button class="form-button" routerLink="/">Shop now</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

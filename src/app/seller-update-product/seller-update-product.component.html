@@ -1,0 +1,16 @@
+<div class="add-product table-responsive-sm">
+    <h1>Edit Product</h1>
+    <p>{{Productmessage}}</p>
+    <form #addProduct="ngForm"  class="form"  (ngSubmit)="Submit(addProduct.value)">
+        <input class="form-input" ngModel name="Name" type="text" placeholder="Enter Name" ngModel="{{productData?.Name}}" />
+        <input class="form-input" ngModel name="Price" type="text" placeholder="Enter Product Price" ngModel="{{productData?.Price}}" />
+        <input class="form-input" ngModel name="Color" type="text" placeholder="Enter Product Color" ngModel="{{productData?.Color}}"  />
+        <input class="form-input" ngModel name="Category" type="text" placeholder="Enter Product Category" ngModel="{{productData?.Category}}" />
+        <textarea class="form-input" ngModel name="Description" type="text" placeholder="Enter Product Description" ngModel="{{productData?.Description}}"></textarea>
+        <input class="form-input" ngModel name="Image" type="text" placeholder="Enter IMG url" ngModel="{{productData?.Image}}" />
+        <button class="form-button">Submit</button>
+        <button class="back" routerLink="./seller-home">Back</button>
+
+    </form>
+
+</div>
